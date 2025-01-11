@@ -65,7 +65,7 @@ export default function SearchDetails() {
         </nav>
         <div className="px-5 mt-[30px]">
             {loading && <p>Loading....</p>}
-            {error && <p>error</p>}
+            {error && <p>{error}</p>}
             <div
 
                 className="flex items-center rounded-full p-[5px_14px] pr-[5px] gap-[10px] bg-white shadow-[0_12px_30px_0_#D6D6D652] transition-all duration-300 focus-within:ring-1 focus-within:ring-[#FF4C1C]"
