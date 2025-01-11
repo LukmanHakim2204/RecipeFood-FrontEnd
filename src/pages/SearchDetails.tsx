@@ -21,6 +21,10 @@ export default function SearchDetails() {
     }, [location.search]);
 
     const performSearch = async (query: string) => {
+        if (!query) {
+            setSearchResult([]);
+            return;
+        }
         setLoading(true);
         setError(null);
         try {
