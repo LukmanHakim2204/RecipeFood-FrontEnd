@@ -2,7 +2,7 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Browse from "./pages/Browse";
 import SearchDetails from "./pages/SearchDetails";
 // import RecipeDetail from "./pages/RecipeDetail";
-// import CategoryDetails from "./pages/CategoryDetails";
+import CategoryDetails from "./pages/CategoryDetails";
 
 
 function App() {
@@ -11,8 +11,8 @@ function App() {
       <Routes>
         <Route path="/" element={<Browse />} />
         <Route path="/search" element={<SearchDetails />} />
-        {/* <Route path="/recipe/:slug" element={<RecipeDetail />} />
-        <Route path="/category/:slug" element={<CategoryDetails />} /> */}
+        {/* <Route path="/recipe/:slug" element={<RecipeDetail />} />*/}
+        <Route path="/category/:slug" element={<CategoryDetails />} /> 
       </Routes>
     </Router>
   )
