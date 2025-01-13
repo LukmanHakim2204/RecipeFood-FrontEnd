@@ -1,6 +1,39 @@
+import { useParams } from "react-router-dom";
 import CategoryDetailsDetailRecipesWrapper from "../wrappers/CategoryDetailsWrapper";
+import { useEffect, useState } from "react";
+import { Category } from "../types/type";
+import axios from "axios";
 
 export default function CategoryDetails() {
+
+    const baseURL = "http://127.0.0.1:8000/storage";
+    const { slug } = useParams<{ slug: string }>();
+    const [category, setCategory] = useState<Category | null>(null);
+    const [loading, setLoading] = useState(false);
+    const [error, setError] = useState<string | null>(null);
+
+    useEffect(() => {
+        axios.get(`http://127.0.0.1:8000/api/category/${slug}`)
+            .then((response) => {
+                setCategory(response.data.data)
+                setLoading(false);
+            })
+            .catch((error) => {
+                setError(error);
+                setLoading(false);
+            });
+    }, [slug]);
+
+    if (loading) {
+        return <p>Loading....</p>;
+    }
+
+    if (error) {
+        return <p>Error Loading Data : {error}</p>;
+    }
+    if (!category) {
+        return <p>Category Not Found</p>
+    }
     return (
         <>
             <nav className="absolute top-0 flex w-full max-w-[640px] items-center justify-between px-5 mt-[30px] z-20">
@@ -38,15 +71,15 @@ export default function CategoryDetails() {
                         <div className="flex items-center gap-[10px]">
                             <div className="w-[70px] h-[70px] overflow-hidden">
                                 <img
-                                    src="/assets/images/icons/bakery.png"
+                                    src={`${baseURL}/${category.icon}`}
                                     className="w-full h-full object-cover"
                                     alt="icon"
                                 />
                             </div>
                             <div className="flex flex-col gap-[2px]">
-                                <p className="font-bold text-lg leading-[27px]">Bakery</p>
+                                <p className="font-bold text-lg leading-[27px]">{category.name}</p>
                                 <p className="text-sm leading-[21px] text-[#848486]">
-                                    183,498 Recipes
+                                    {category.recipes_count} Recipes
                                 </p>
                             </div>
                         </div>
