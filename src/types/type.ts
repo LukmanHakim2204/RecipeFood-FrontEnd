@@ -28,8 +28,8 @@ export interface Category{
     name: string;
     slug: string;
     icon: string;
-    recipe_count: number;
-    recipe:Recipe[];
+    recipes_count: number;
+    recipes:Recipe[];
 }
 
 export interface RecipeIngredient{
