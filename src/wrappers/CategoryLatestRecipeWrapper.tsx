@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import RecipeCardResult from "../components/RecipeCardResult";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { Category } from "../types/type";
 import axios from "axios";
 
@@ -44,7 +44,9 @@ export default function CategoryLatesDetailRecipeWrapper() {
             <div className="flex flex-col gap-[18px] mt-[18px]">
                 {category.recipes.length > 0 ? (
                     category.recipes.map((recipe) => (
-                        <RecipeCardResult key={recipe.id} recipe={recipe}></RecipeCardResult>
+                        <Link to={`/recipe/${recipe.slug}`} key={recipe.id}>
+                            <RecipeCardResult recipe={recipe}></RecipeCardResult>
+                        </Link>
                     ))) : (<p>Belum ada data terkait</p>)
                 }
             </div>

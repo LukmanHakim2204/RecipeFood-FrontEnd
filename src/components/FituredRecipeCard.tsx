@@ -4,7 +4,7 @@ export default function FituredRecipeCard({ recipe }: RecipeCardProps) {
     const baseURL = "http://127.0.0.1:8000/storage";
     return (
         <div>
-            <a href="details.html" className="card">
+            <div className="card">
                 <div className="relative w-[200px] h-[280px] rounded-[30px] bg-white overflow-hidden">
                     <img
                         src={`${baseURL}/${recipe.thumbnail}`}
@@ -33,7 +33,7 @@ export default function FituredRecipeCard({ recipe }: RecipeCardProps) {
                         </div>
                     </div>
                 </div>
-            </a>
+            </div>
         </div>
     );
 }

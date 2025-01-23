@@ -5,7 +5,7 @@ import FituredRecipeCard from "../components/FituredRecipeCard";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { Category } from "../types/type";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 export default function CategoryDetailsDetailRecipesWrapper() {
 
@@ -58,7 +58,9 @@ export default function CategoryDetailsDetailRecipesWrapper() {
                     {category.recipes.length > 0 ? (
                         category.recipes.map((recipe) => (
                             <SwiperSlide key={recipe.id} className="!w-fit" >
-                                <FituredRecipeCard recipe={recipe} />
+                                <Link to={`/recipe/${recipe.slug}`}>
+                                    <FituredRecipeCard recipe={recipe} />
+                                </Link>
                             </SwiperSlide>
                         ))):(<p>Belum ada Recipe dari katagory tersebut</p>)
                     }

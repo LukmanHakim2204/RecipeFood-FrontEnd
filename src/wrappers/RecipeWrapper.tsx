@@ -4,6 +4,7 @@ import FituredRecipeCard from "../components/FituredRecipeCard";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { Recipe } from '../types/type';
+import { Link } from "react-router-dom";
 export default function RecipeWrapper() {
 
     const [recipes, setRecipes] = useState<Recipe[]>([]);
@@ -50,11 +51,11 @@ export default function RecipeWrapper() {
                     slidesOffsetAfter={20}>
                     {recipes.map((recipe) => (
                         <SwiperSlide key={recipe.id} className="!w-fit" >
-                            <FituredRecipeCard recipe={recipe} />
+                            <Link to={`/recipe/${recipe.slug}`}>
+                                <FituredRecipeCard recipe={recipe} />
+                            </Link>
                         </SwiperSlide>
                     ))}
-
-
                 </Swiper>
 
             </div>
