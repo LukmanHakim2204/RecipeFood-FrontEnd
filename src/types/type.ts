@@ -7,11 +7,15 @@ export interface Recipe {
     author: Author;
     category: Category;
     thumbnail: string;
+    photos : Photo[];
     tutorials: Tutorial[];
     recipe_ingredients: RecipeIngredient[];
     about:string;
 }
-
+export interface Photo{
+    id: number;
+    photo: string;
+}
 export interface Tutorial{
     id: number;
     name: string;
