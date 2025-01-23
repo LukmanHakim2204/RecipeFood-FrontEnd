@@ -38,7 +38,7 @@ export interface Category{
 
 export interface RecipeIngredient{
     id: number;
-    ingredient : Ingredient[];
+    ingredient : Ingredient;
 }
 
 export interface Ingredient{
