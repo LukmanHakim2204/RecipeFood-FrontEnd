@@ -48,18 +48,18 @@ export default function SearchDetails() {
 
     return (<>
         <nav className="flex items-center justify-between px-5 mt-[30px]">
-            <Link to={'/'} className="flex shrink-0">
-                <img src="assets/images/logos/logo.svg" alt="logo" />
+            <Link to={'/'}>
+                <div className="flex shrink-0">
+                    <img src="assets/images/logos/logo.svg" alt="logo" />
+                </div>
             </Link>
-            <a href="#">
-                <div className="flex items-center justify-center w-10 h-10 rounded-full bg-white shadow-[0_10px_20px_0_#D6D6D6AB] transition-all duration-300 hover:shadow-[0_10px_20px_0_#FF4C1C80]">
+            <div className="flex items-center justify-center w-10 h-10 rounded-full bg-white shadow-[0_10px_20px_0_#D6D6D6AB] transition-all duration-300 hover:shadow-[0_10px_20px_0_#FF4C1C80]">
                     <img
                         src="assets/images/icons/notification.svg"
                         className="w-5 h-5 object-contain"
                         alt="icon"
                     />
-                </div>
-            </a>
+            </div>
         </nav>
         <div className="px-5 mt-[30px]">
             {loading && <p>Loading....</p>}
@@ -94,7 +94,9 @@ export default function SearchDetails() {
             <div className="flex flex-col gap-[18px] mt-[18px]">
                 {searchResult.length > 0 ? (
                     searchResult.map((recipe) => (
-                        <RecipeCardResult key={recipe.id} recipe={recipe}></RecipeCardResult>
+                        <Link to={`/recipe/${recipe.slug}`} key={recipe.id}>
+                            <RecipeCardResult recipe={recipe}></RecipeCardResult>
+                        </Link>
                     ))) : (<p>Belum Ada Recipe</p>)
                 }
 
