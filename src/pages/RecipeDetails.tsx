@@ -279,7 +279,7 @@ export default function RecipeDetails() {
                                         <div className="flex flex-col gap-[2px]">
                                             <p className="font-semibold">{recipeIngredients.ingredient.name}</p>
                                             <p className="text-sm leading-[21px] text-[#848486]">
-                                                1 kilogram
+                                                {recipeIngredients.ingredient.measure}
                                             </p>
                                         </div>
                                     </div>
