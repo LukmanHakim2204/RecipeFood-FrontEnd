@@ -12,7 +12,11 @@ export default function RecipeWrapper() {
     const [error, setError] = useState<string | null>(null);
 
     useEffect(() => {
-        axios.get('http://127.0.0.1:8000/api/recipes')
+        axios.get('http://127.0.0.1:8000/api/recipes', {
+            headers: {
+                'X-API-KEY': 'Lukman121231'
+            }
+        })
             .then((response) => {
                 setRecipes(response.data.data)
                 setLoading(false);

@@ -15,7 +15,11 @@ export default function CategoryDetailsDetailRecipesWrapper() {
     const [error, setError] = useState<string | null>(null);
 
     useEffect(() => {
-        axios.get(`http://127.0.0.1:8000/api/category/${slug}`)
+        axios.get(`http://127.0.0.1:8000/api/category/${slug}`, {
+            headers: {
+                'X-API-KEY': 'Lukman121231'
+            }
+        })
             .then((response) => {
                 setCategory(response.data.data)
                 setLoading(false);

@@ -21,7 +21,11 @@ export default function RecipeDetails() {
     const [error, setError] = useState<string | null>(null);
 
     useEffect(() => {
-        axios.get(`http://127.0.0.1:8000/api/recipe/${slug}`)
+        axios.get(`http://127.0.0.1:8000/api/recipe/${slug}`, {
+            headers: {
+                'X-API-KEY': 'Lukman121231'
+            }
+        })
             .then(response => {
                 setRecipe(response.data.data);
                 setLoading(false);
