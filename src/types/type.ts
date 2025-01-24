@@ -45,4 +45,5 @@ export interface Ingredient{
     id: number;
     name: string;
     photo: string;
+    measure: string;
 }
